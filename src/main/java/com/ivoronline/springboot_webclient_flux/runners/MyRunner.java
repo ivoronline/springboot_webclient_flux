@@ -6,13 +6,16 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MyCommandLineRunner implements CommandLineRunner {
+public class MyRunner implements CommandLineRunner {
 
+  //PROPERTIES
   @Autowired private PersonService personService;
 
+  //===============================================================
+  // RUN
+  //===============================================================
   @Override
   public void run(String... args) throws Exception {
-    personService.getPerson();
     personService.getPersons();
   }
 

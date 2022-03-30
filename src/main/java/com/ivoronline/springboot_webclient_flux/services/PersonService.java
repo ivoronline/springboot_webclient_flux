@@ -3,7 +3,6 @@ package com.ivoronline.springboot_webclient_flux.services;
 import com.ivoronline.springboot_webclient_flux.entities.Person;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -11,31 +10,12 @@ import java.util.List;
 public class PersonService {
 
   //===============================================================
-  // GET PERSON
-  //===============================================================
-  public void getPerson() {
-
-    //GET PERSON FROM SERVER
-    Person person = WebClient.create("http://localhost:8085")
-                             .get()
-                             .uri("/GetPerson")
-                             .retrieve()
-                             .bodyToMono(Person.class)
-                             .block(Duration.ofSeconds(3));
-
-    //DISPLAY PERSON
-    System.out.println("getPerson()");
-    System.out.println(person.id + " " + person.name+ " " + person.age);
-
-  }
-
-  //===============================================================
   // GET PERSONS
   //===============================================================
   public void getPersons() {
 
     //GET PERSON FROM SERVER
-    List<Person> persons = WebClient.create("http://localhost:8085")
+    List<Person> persons = WebClient.create("http://localhost:8080")
                                 .get()
                                 .uri("/GetPersons")
                                 .retrieve()
